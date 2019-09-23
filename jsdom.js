@@ -65,7 +65,7 @@ for (let k = 0; k < 50; k++) {
 }
 
 /*--- begin answer part01 ---*/
-partOneNode = document.getElementById('part01');
+let partOneNode = document.getElementById('part01');
 let atomList = document.createElement('ol');
 atoms.forEach((atomStr) =>{
   listItem = document.createElement('li');
@@ -80,7 +80,31 @@ partOneNode.appendChild(atomList);
 /*--- begin answer part02 ---*/
 const myDomesticTravel = {};
 const myInternationalTravel = {};
-const test = atomList.classList 
+
+// apend myDomesticTravel
+myDomesticTravel.destination = 'Seattle, Washington';
+myDomesticTravel.dateOfVisit = 'July 20-25 Yearly';
+myDomesticTravel.isAbroad = false;
+myDomesticTravel.paragraph = document.createElement('p');
+const DOMESTIC_STR = 'My family goes to ${myDomesticTravel.destination}  from  ${myDomesticTravel.dateOfVisit}'
+myDomesticTravel.paragraph.append (document.createTextNode(DOMESTIC_STR));
+
+myDomesticTravel.paragraph.classList.add('domestic');
+//append myInternationalTravel
+myInternationalTravel.destination = 'Cozumel, Mexico';
+myInternationalTravel.dateOfVisit = 'July 24, 2018';
+myInternationalTravel.isAbroad = true;
+myInternationalTravel.paragraph = document.createElement('p');
+const INTERNATIONAL_STR = 'Last year my exended family went on a cruise. On that curise we ' +
+'went to ${myInternationalTravel.destination} on ${myInternationalTravel.dateOfVisit}';
+myInternationalTravel.paragraph.appendChild(document.createTextNode(INTERNATIONAL_STR));
+
+myInternationalTravel.paragraph.classList.add('international');
+
+let partTwoNode = document.getElementById('part02');
+partTwoNode.appendChild(myDomesticTravel.paragraph);
+partTwoNode.appendChild(myInternationalTravel.paragraph);
+
 /*--- end answer part02 ---*/
 
 // Code for part 3
