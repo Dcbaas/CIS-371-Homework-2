@@ -83,10 +83,10 @@ const myInternationalTravel = {};
 
 // apend myDomesticTravel
 myDomesticTravel.destination = 'Seattle, Washington';
-myDomesticTravel.dateOfVisit = 'July 20-25 Yearly';
+myDomesticTravel.dateOfVisit = 'July 20-25 yearly';
 myDomesticTravel.isAbroad = false;
 myDomesticTravel.paragraph = document.createElement('p');
-const DOMESTIC_STR = 'My family goes to ${myDomesticTravel.destination}  from  ${myDomesticTravel.dateOfVisit}'
+const DOMESTIC_STR = `My family goes to ${myDomesticTravel.destination}  from  ${myDomesticTravel.dateOfVisit}.`;
 myDomesticTravel.paragraph.append (document.createTextNode(DOMESTIC_STR));
 
 myDomesticTravel.paragraph.classList.add('domestic');
@@ -95,16 +95,34 @@ myInternationalTravel.destination = 'Cozumel, Mexico';
 myInternationalTravel.dateOfVisit = 'July 24, 2018';
 myInternationalTravel.isAbroad = true;
 myInternationalTravel.paragraph = document.createElement('p');
-const INTERNATIONAL_STR = 'Last year my exended family went on a cruise. On that curise we ' +
-'went to ${myInternationalTravel.destination} on ${myInternationalTravel.dateOfVisit}';
+const INTERNATIONAL_STR = `Last year, my exended family went on a cruise. On that curise we
+went to ${myInternationalTravel.destination} on ${myInternationalTravel.dateOfVisit}.`;
 myInternationalTravel.paragraph.appendChild(document.createTextNode(INTERNATIONAL_STR));
 
 myInternationalTravel.paragraph.classList.add('international');
 
+// Extra Credit
+myDomesticTravel.imageSrc = './res/Seattle WA.jpg';
+myInternationalTravel.imageSrc = './res/Cozumel Mexico.jpg';
+
+myDomesticTravel.image = document.createElement('img');
+myInternationalTravel.image = document.createElement('img');
+
+myDomesticTravel.image.setAttribute('src', myDomesticTravel.imageSrc);
+myDomesticTravel.image.setAttribute('width', '150px');
+myDomesticTravel.image.setAttribute('height', '150px');
+
+myInternationalTravel.image.setAttribute('src', myInternationalTravel.imageSrc);
+myInternationalTravel.image.setAttribute('width', '150px');
+myInternationalTravel.image.setAttribute('height', '150px');
+
+// Add the elements.
 let partTwoNode = document.getElementById('part02');
 partTwoNode.appendChild(myDomesticTravel.paragraph);
-partTwoNode.appendChild(myInternationalTravel.paragraph);
+partTwoNode.appendChild(myDomesticTravel.image)
 
+partTwoNode.appendChild(myInternationalTravel.paragraph);
+partTwoNode.appendChild(myInternationalTravel.image);
 /*--- end answer part02 ---*/
 
 // Code for part 3
@@ -143,15 +161,59 @@ for (let k = 0; k < 50; k++) {
 }
 
 /*--- begin answer part03 ---*/
+const HEAVY_STR = 'heavy';
+const LIGHT_STR = 'light';
+let detailedAtomList = document.createElement('ol')
+atomObjects.forEach(x => {
+  listItem = document.createElement('li');
+  if(x.weight > 150){
+    listItem.classList.add(HEAVY_STR);
+  }
+  else {
+    listItem.classList.add(LIGHT_STR);
+  }
+  const ATOM_STR = `${x.name} (weight: ${parseFloat(x.weight).toFixed(1)})`;
+  listItem.appendChild(document.createTextNode(ATOM_STR));
+  detailedAtomList.appendChild(listItem);
+});
+partThreeObject = document.getElementById('part03');
+partThreeObject.appendChild(detailedAtomList);
 /*--- end answer part03 ---*/
 
 // Code for part 4
 /*--- begin answer part04 ---*/
+const tableHeaders = ['Atom', 'Weight'];
+let atomTable = document.createElement('table');
+atomTable.classList.add('atomTable');
+let atomTableHeader = document.createElement('tr');  
+tableHeaders.forEach((element) => {
+  tdEntry = document.createElement('th');
+  tdEntry.appendChild(document.createTextNode(element));
+  atomTableHeader.appendChild(tdEntry);
+})
+atomTable.appendChild(atomTableHeader);
+
+atomObjects.forEach((element) => {
+  let tableRow = document.createElement('tr');
+  let atomColumn = document.createElement('td');
+  let weightColumn = document.createElement('td');
+
+  atomColumn.appendChild(document.createTextNode(element.name))
+  weightColumn.appendChild(document.createTextNode(element.weight));
+  tableRow.appendChild(atomColumn);
+  tableRow.appendChild(weightColumn);
+  if(element.weight > 150){
+    tableRow.classList.add(HEAVY_STR);
+  }
+  else {
+    tableRow.classList.add(LIGHT_STR);
+  }
+  atomTable.appendChild(tableRow);
+});
+let partFourNode = document.getElementById('part04');
+partFourNode.appendChild(atomTable);
 /*--- end answer part04 ---*/
 
-// Code for part 4
-/*--- begin answer part04 ---*/
-/*--- end answer part04 ---*/
 
 // Code for part 5 (Extra credit)
 /*--- begin answer part05 ---*/
