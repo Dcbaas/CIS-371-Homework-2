@@ -84,7 +84,7 @@ const myDomesticTravel = {
   isAbroad: false,
   paragraph: document.createElement('p'),
   imageSrc: './res/Seattle WA.jpg',
-  image: document.createElement('img')
+  photoURL: document.createElement('img')
 };
 const myInternationalTravel = {
   destination: 'Cozumel, Mexico',
@@ -92,31 +92,31 @@ const myInternationalTravel = {
   isAbroad: true,
   paragraph: document.createElement('p'),
   imageSrc: './res/Cozumel Mexico.jpg',
-  image: document.createElement('img')
+  photoURL: document.createElement('img')
 };
 
 const DOMESTIC_STR = `My family goes to ${myDomesticTravel.destination}  from  ${myDomesticTravel.dateOfVisit}.`;
 myDomesticTravel.paragraph.append (document.createTextNode(DOMESTIC_STR));
 myDomesticTravel.paragraph.classList.add('domestic');
-myDomesticTravel.image.setAttribute('src', myDomesticTravel.imageSrc);
-myDomesticTravel.image.setAttribute('width', '150px');
-myDomesticTravel.image.setAttribute('height', '150px');
+myDomesticTravel.photoURL.setAttribute('src', myDomesticTravel.imageSrc);
+myDomesticTravel.photoURL.setAttribute('width', '150px');
+myDomesticTravel.photoURL.setAttribute('height', '150px');
 
 const INTERNATIONAL_STR = `Last year, my exended family went on a cruise. On that curise we
 went to ${myInternationalTravel.destination} on ${myInternationalTravel.dateOfVisit}.`;
 myInternationalTravel.paragraph.appendChild(document.createTextNode(INTERNATIONAL_STR));
 myInternationalTravel.paragraph.classList.add('international');
-myInternationalTravel.image.setAttribute('src', myInternationalTravel.imageSrc);
-myInternationalTravel.image.setAttribute('width', '150px');
-myInternationalTravel.image.setAttribute('height', '150px');
+myInternationalTravel.photoURL.setAttribute('src', myInternationalTravel.imageSrc);
+myInternationalTravel.photoURL.setAttribute('width', '150px');
+myInternationalTravel.photoURL.setAttribute('height', '150px');
 
 // Add the elements.
 let partTwoNode = document.getElementById('part02');
 partTwoNode.appendChild(myDomesticTravel.paragraph);
-partTwoNode.appendChild(myDomesticTravel.image)
+partTwoNode.appendChild(myDomesticTravel.photoURL)
 
 partTwoNode.appendChild(myInternationalTravel.paragraph);
-partTwoNode.appendChild(myInternationalTravel.image);
+partTwoNode.appendChild(myInternationalTravel.photoURL);
 /*--- end answer part02 ---*/
 
 // Code for part 3
