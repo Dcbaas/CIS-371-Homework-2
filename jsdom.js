@@ -78,40 +78,34 @@ partOneNode.appendChild(atomList);
 // Code for part 2
 // Don't rename the following two variables!
 /*--- begin answer part02 ---*/
-const myDomesticTravel = {};
-const myInternationalTravel = {};
+const myDomesticTravel = {
+  destination: 'Seattle, Washington',
+  dateOfVisit: 'July 20-25 yearly',
+  isAbroad: false,
+  paragraph: document.createElement('p'),
+  imageSrc: './res/Seattle WA.jpg',
+  image: document.createElement('img')
+};
+const myInternationalTravel = {
+  destination: 'Cozumel, Mexico',
+  dateOfVisit: 'July 24, 2018',
+  isAbroad: true,
+  paragraph: document.createElement('p'),
+  imageSrc: './res/Cozumel Mexico.jpg',
+  image: document.createElement('img')
+};
 
-// apend myDomesticTravel
-myDomesticTravel.destination = 'Seattle, Washington';
-myDomesticTravel.dateOfVisit = 'July 20-25 yearly';
-myDomesticTravel.isAbroad = false;
-myDomesticTravel.paragraph = document.createElement('p');
 const DOMESTIC_STR = `My family goes to ${myDomesticTravel.destination}  from  ${myDomesticTravel.dateOfVisit}.`;
 myDomesticTravel.paragraph.append (document.createTextNode(DOMESTIC_STR));
-
 myDomesticTravel.paragraph.classList.add('domestic');
-//append myInternationalTravel
-myInternationalTravel.destination = 'Cozumel, Mexico';
-myInternationalTravel.dateOfVisit = 'July 24, 2018';
-myInternationalTravel.isAbroad = true;
-myInternationalTravel.paragraph = document.createElement('p');
-const INTERNATIONAL_STR = `Last year, my exended family went on a cruise. On that curise we
-went to ${myInternationalTravel.destination} on ${myInternationalTravel.dateOfVisit}.`;
-myInternationalTravel.paragraph.appendChild(document.createTextNode(INTERNATIONAL_STR));
-
-myInternationalTravel.paragraph.classList.add('international');
-
-// Extra Credit
-myDomesticTravel.imageSrc = './res/Seattle WA.jpg';
-myInternationalTravel.imageSrc = './res/Cozumel Mexico.jpg';
-
-myDomesticTravel.image = document.createElement('img');
-myInternationalTravel.image = document.createElement('img');
-
 myDomesticTravel.image.setAttribute('src', myDomesticTravel.imageSrc);
 myDomesticTravel.image.setAttribute('width', '150px');
 myDomesticTravel.image.setAttribute('height', '150px');
 
+const INTERNATIONAL_STR = `Last year, my exended family went on a cruise. On that curise we
+went to ${myInternationalTravel.destination} on ${myInternationalTravel.dateOfVisit}.`;
+myInternationalTravel.paragraph.appendChild(document.createTextNode(INTERNATIONAL_STR));
+myInternationalTravel.paragraph.classList.add('international');
 myInternationalTravel.image.setAttribute('src', myInternationalTravel.imageSrc);
 myInternationalTravel.image.setAttribute('width', '150px');
 myInternationalTravel.image.setAttribute('height', '150px');
@@ -217,4 +211,5 @@ partFourNode.appendChild(atomTable);
 
 // Code for part 5 (Extra credit)
 /*--- begin answer part05 ---*/
+// I didn't have time to do this extra credit. :(
 /*--- end answer part05 ---*/
